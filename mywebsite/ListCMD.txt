@@ -10,3 +10,6 @@ Database:
 
 Add User:
     1)python manage.py createsuperuser
+
+Start app:
+    1)python manage.py startapp AppName
