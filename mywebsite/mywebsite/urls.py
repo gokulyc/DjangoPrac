@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Music.views import Home
+from Music.views import *
 
 urlpatterns = [
     path('', Home),
     path('admin/', admin.site.urls),
-    path('home/', Home)
+    path('home/', Home),
+    path('home/guitar', Guitar),
+    path('home/Violin', Violin),
+    path('home/Trumpet', Trumpet),
+    path('home/Drums', Drums),
+    path('home/Flute', Flute)
 ]
