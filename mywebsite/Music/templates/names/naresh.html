@@ -1,0 +1,85 @@
+{% load static %}
+
+<head>
+    <style>
+        .btn {
+            background-color: rgb(154, 156, 156);
+            color: white;
+            padding: 10px;
+            border-radius: 20px"
+
+        }
+
+        .btn:hover {
+            background-color: green;
+        }
+
+        img.name {
+            height: 60%;
+            width: 35%;
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: cadetblue;
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        #nametitle {
+            background-color: rgb(107, 157, 6);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<h1 style="color:green">
+    <a href="/home">
+        <center style="color:white;background-color:blue">
+            Musicical Instruments
+        </center>
+    </a>
+</h1>
+
+<body>
+    <div>
+        <ul>
+            <!--  template context processor      -->
+
+            {% for name,url in details %}
+            <a href={{url}}>
+                <li>{{name}}</li>
+            </a>
+            {% endfor %}
+            <!-- {% for i in li %}
+        <li>{{i}}</li>
+        {% endfor %} -->
+
+        </ul>
+        <a class="contactus" href="/name/contactus">Contact Us</button>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="/home/guitar">Guitar</a>
+                <a href="/home/Violin">Violin</a>
+                <a href="/home/Flute">Flute</a>
+                <a href="/home/Trumpet">Trumpet</a>
+                <a href="/home/Drums">Drums</a>
+            </li>
+        </ul>
+    </div>
+    <h2 id="nametitle">Naresh</h2>
+    <img class='name' src="{%static '/names/men-s-wearing-black-suit-jacket-and-pants-2.jpg'%}">
+</body>

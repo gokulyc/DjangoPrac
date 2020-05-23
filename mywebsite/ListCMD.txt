@@ -11,5 +11,5 @@ Database:
 Add User:
     1)python manage.py createsuperuser
 
-Start app:
+Start app: 
     1)python manage.py startapp AppName

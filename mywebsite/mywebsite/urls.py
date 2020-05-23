@@ -25,5 +25,11 @@ urlpatterns = [
     path('home/Violin', Violin),
     path('home/Trumpet', Trumpet),
     path('home/Drums', Drums),
-    path('home/Flute', Flute)
+    path('home/Flute', Flute),
+    path('name/prateek', Prateek),
+    path('name/naresh', Naresh),
+    path('name/nipun', Nipun),
+    path('name/arnab', Arnab),
+    path('name/contactus', Contactus),
+
 ]
