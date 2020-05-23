@@ -55,8 +55,7 @@ def Arnab(request):
 
 
 def Contactus(request):
-
-    return render(request, "names/contactus.html", di)
+    return render(request, "names/contactus.html", {'details': details})
 
 
 def Guitar(request):
