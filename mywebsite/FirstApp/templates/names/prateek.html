@@ -2,19 +2,7 @@
 
 <head>
     <style>
-        .btn {
-            background-color: rgb(154, 156, 156);
-            color: white;
-            padding: 10px;
-            border-radius: 20px"
-
-        }
-
-        .btn:hover {
-            background-color: green;
-        }
-
-        img.name {
+        img.iname {
             height: 60%;
             width: 35%;
         }
@@ -22,12 +10,15 @@
         .contactus {
             position: absolute;
             right: 0px;
-            background-color: cadetblue;
+            background-color: rgb(152, 212, 255);
             color: cornsilk;
             border-radius: 20px;
             font-size: larger;
+            padding: 5 5 5 5;
+            text-decoration: none;
 
         }
+
 
         a.contactus,
         a.contactus:visited,
@@ -47,7 +38,7 @@
 <h1 style="color:green">
     <a href="/home">
         <center style="color:white;background-color:blue">
-            Musicical Instruments
+            First App
         </center>
     </a>
 </h1>
@@ -67,19 +58,9 @@
         {% endfor %} -->
 
         </ul>
-        <a class="contactus" href="/name/contactus">Contact Us</button>
+
     </div>
-    <div>
-        <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
-        </ul>
-    </div>
-    <h2 id="nametitle">Nipun</h2>
-    <img class='name' src="{%static '/names/photography-of-a-guy-wearing-green-shirt-3.jpg'%}">
+    <a class="contactus" href="/name/contactus">Contact Us</a><br>
+    <h2 id="nametitle">Prateek</h2>
+    <img class='iname' src="{% static '/adult-beard-boy-casual-1.jpg' %}">
 </body>

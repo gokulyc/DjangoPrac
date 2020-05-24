@@ -2,18 +2,6 @@
 
 <head>
     <style>
-        .btn {
-            background-color: rgb(154, 156, 156);
-            color: white;
-            padding: 10px;
-            border-radius: 20px"
-
-        }
-
-        .btn:hover {
-            background-color: green;
-        }
-
         img.name {
             height: 60%;
             width: 35%;
@@ -22,10 +10,12 @@
         .contactus {
             position: absolute;
             right: 0px;
-            background-color: cadetblue;
+            background-color: rgb(152, 212, 255);
             color: cornsilk;
             border-radius: 20px;
             font-size: larger;
+            padding: 5 5 5 5;
+            text-decoration: none;
 
         }
 
@@ -47,7 +37,7 @@
 <h1 style="color:green">
     <a href="/home">
         <center style="color:white;background-color:blue">
-            Musicical Instruments
+            First App
         </center>
     </a>
 </h1>
@@ -67,19 +57,9 @@
         {% endfor %} -->
 
         </ul>
-        <a class="contactus" href="/name/contactus">Contact Us</button>
+
     </div>
-    <div>
-        <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
-        </ul>
-    </div>
-    <h2 id="nametitle">Contact Us</h2>
-    <h3>django_contactus@gmail.com</h3>
+    <a class="contactus" href="/name/contactus">Contact Us</button></a><br>
+    <h2 id="nametitle">Arnab</h2>
+    <img class='name' src="{%static 'man-sitting-on-bench-having-a-cup-of-coffee-4jpg.jpg'%}">
 </body>

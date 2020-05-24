@@ -16,16 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Music.views import *
+from FirstApp.views import *
 
 urlpatterns = [
-    path('', Home),
     path('admin/', admin.site.urls),
+    path('', Music),
+    path('music/', Music),
+    path('music/guitar', Guitar),
+    path('music/Violin', Violin),
+    path('music/Trumpet', Trumpet),
+    path('music/Drums', Drums),
+    path('music/Flute', Flute),
     path('home/', Home),
-    path('home/guitar', Guitar),
-    path('home/Violin', Violin),
-    path('home/Trumpet', Trumpet),
-    path('home/Drums', Drums),
-    path('home/Flute', Flute),
     path('name/prateek', Prateek),
     path('name/naresh', Naresh),
     path('name/nipun', Nipun),

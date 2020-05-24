@@ -1,27 +1,74 @@
+<head>
+    <style>
+        .ptitle {
+            color: white;
+            background-color: rgb(3, 132, 137);
+            text-align: center;
+        }
+
+        .mtitle {
+            color: white;
+            background-color: rgb(103, 15, 255);
+            text-align: center;
+
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: cadetblue;
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+
+        }
+
+        a.instumentlink {
+            border: solid 1px black;
+            text-decoration: none;
+            color: rgb(53, 84, 7);
+            border-radius: 20px;
+            padding: 10 10 10 10;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        a
+    </style>
+</head>
+
 <h1 style="color:green">
-    <a href="/home">
-        <center style="color:white;background-color:blue">
+    <a href="/music">
+        <center class='mtitle'>
             Musicical Instruments
         </center>
     </a>
 </h1>
-<br>
 
 <body>
     <div>
         <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
+            <!--  template context processor      -->
+
+            {% for name,url in details %}
+            <a class='instumentlink' href={{url}}>
+                <span>{{name}}</span>
+            </a>
+            {% endfor %}
+
         </ul>
+        <!--<a class="contactus" href="/name/contactus">Contact Us</a>-->
     </div>
     <div>
-        <h2 style="color:white;background-color:green">Violin</h2>
-        <p>The violin, sometimes known as a fiddle, is a wooden string instrument in the violin family. Most violins
+        <h2 class="ptitle">Violin</h2>
+        <p style="text-align: justify;">The violin, sometimes known as a fiddle, is a wooden string instrument in the
+            violin family. Most violins
             have a hollow wooden body. It is the smallest and highest-pitched instrument (soprano) in the family in
             regular use. Smaller violin-type instruments exist, including the violino piccolo and the pochette, but
             these are virtually unused. The violin typically has four strings, usually tuned in perfect fifths with

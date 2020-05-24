@@ -13,6 +13,13 @@
             background-color: green;
         }
 
+        .mtitle {
+            color: white;
+            background-color: rgb(103, 15, 255);
+            text-align: center;
+
+        }
+
         img.main {
             height: 100%;
             width: 100%;
@@ -28,6 +35,20 @@
 
         }
 
+        a.instumentlink {
+            border: solid 1px black;
+            text-decoration: none;
+            color: rgb(53, 84, 7);
+            border-radius: 20px;
+            padding: 10 10 10 10;
+
+        }
+
+        .ptitle {
+            color: white;
+            background-color: rgb(3, 132, 137);
+        }
+
         a.contactus,
         a.contactus:visited,
         a.contactus:hover,
@@ -37,8 +58,8 @@
     </style>
 </head>
 <h1 style="color:green">
-    <a href="/home">
-        <center style="color:white;background-color:blue">
+    <a href="/music">
+        <center class='mtitle'>
             Musicical Instruments
         </center>
     </a>
@@ -52,8 +73,8 @@
         <li>{{name}}:{{age}}</li>
         <li>list:{{li}}</li> -->
             {% for name,url in details %}
-            <a href={{url}}>
-                <li>{{name}}</li>
+            <a class='instumentlink' href={{url}}>
+                <span>{{name}}</span>
             </a>
             {% endfor %}
             <!-- {% for i in li %}
@@ -61,18 +82,8 @@
         {% endfor %} -->
 
         </ul>
-        <a class="contactus" href="/name/contactus">Contact Us</button>
+        <!-- <a class="contactus" href="/name/contactus">Contact Us</button> -->
     </div>
-    <div>
-        <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
-        </ul>
-    </div>
+
     <img class='main' src="{%static 'people-at-concert-1105666.jpg'%}">
 </body>

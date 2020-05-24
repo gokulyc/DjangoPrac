@@ -1,33 +1,80 @@
+<head>
+    <style>
+        .ptitle {
+            color: white;
+            background-color: rgb(3, 132, 137);
+            text-align: center;
+        }
+
+        .mtitle {
+            color: white;
+            background-color: rgb(103, 15, 255);
+            text-align: center;
+
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: cadetblue;
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+
+        }
+
+        a.instumentlink {
+            border: solid 1px black;
+            text-decoration: none;
+            color: rgb(53, 84, 7);
+            border-radius: 20px;
+            padding: 10 10 10 10;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        a
+    </style>
+</head>
+
 <h1 style="color:green">
-    <a href="/home">
-        <center style="color:white;background-color:blue">
+    <a href="/music">
+        <center class='mtitle'>
             Musicical Instruments
         </center>
     </a>
 </h1>
-<br>
 
 <body>
     <div>
         <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
+            <!--  template context processor      -->
+
+            {% for name,url in details %}
+            <a class='instumentlink' href={{url}}>
+                <span>{{name}}</span>
+            </a>
+            {% endfor %}
+
         </ul>
+        <!--<a class="contactus" href="/name/contactus">Contact Us</a>-->
     </div>
     <div>
-        <h2 style="color:white;background-color:green">Drums</h2>
-        <p>The drum is a member of the percussion group of musical instruments. In the Hornbostel-Sachs classification
-            system, it is a membranophone.[1] Drums consist of at least one membrane, called a drumhead or drum skin,
+        <h2 class="ptitle">Drums</h2>
+        <p style="text-align: justify;">The drum is a member of the percussion group of musical instruments. In the
+            Hornbostel-Sachs classification
+            system, it is a membranophone. Drums consist of at least one membrane, called a drumhead or drum skin,
             that is stretched over a shell and struck, either directly with the player's hands, or with a percussion
             mallet, to produce sound. There is usually a resonance head on the underside of the drum, typically tuned to
             a slightly lower pitch than the top drumhead. Other techniques have been used to cause drums to make sound,
             such as the thumb roll. Drums are the world's oldest and most ubiquitous musical instruments, and the basic
-            design has remained virtually unchanged for thousands of years.[1]</p>
+            design has remained virtually unchanged for thousands of years.</p>
         <img
             src="https://images.pexels.com/photos/1327430/pexels-photo-1327430.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
 

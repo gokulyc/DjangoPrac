@@ -1,0 +1,59 @@
+{% load static %}
+
+<head>
+    <style>
+        img.main {
+            height: 100%;
+            width: 100%;
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: rgb(152, 212, 255);
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+            padding: 5 5 5 5;
+            text-decoration: none;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+    </style>
+</head>
+<h1 style="color:green">
+    <a href="/home">
+        <center style="color:white;background-color:blue">
+            First App
+        </center>
+    </a>
+</h1>
+
+<body>
+    <div>
+        <ul>
+            <!--  template context processor      -->
+            <!-- <li>{{name}}</li>
+        <li>{{name}}:{{age}}</li>
+        <li>list:{{li}}</li> -->
+            {% for name,url in details %}
+            <a href={{url}}>
+                <li>{{name}}</li>
+            </a>
+            {% endfor %}
+            <!-- {% for i in li %}
+        <li>{{i}}</li>
+        {% endfor %} -->
+
+        </ul>
+        <a class="contactus" href="/name/contactus">Contact Us</a>
+    </div>
+    <br><br>
+    <img class='main' src="{%static 'people-at-concert-1105666.jpg'%}">
+</body>

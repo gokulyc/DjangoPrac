@@ -1,27 +1,73 @@
+<head>
+    <style>
+        .ptitle {
+            color: white;
+            background-color: rgb(3, 132, 137);
+            text-align: center;
+        }
+
+        .mtitle {
+            color: white;
+            background-color: rgb(103, 15, 255);
+            text-align: center;
+
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: cadetblue;
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+
+        }
+
+        a.instumentlink {
+            border: solid 1px black;
+            text-decoration: none;
+            color: rgb(53, 84, 7);
+            border-radius: 20px;
+            padding: 10 10 10 10;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        a
+    </style>
+</head>
+
 <h1 style="color:green">
-    <a href="/home">
-        <center style="color:white;background-color:blue">
+    <a href="/music">
+        <center class='mtitle'>
             Musicical Instruments
         </center>
     </a>
 </h1>
-<br>
 
 <body>
     <div>
         <ul>
-            <li>
-                <a href="/home/guitar">Guitar</a>
-                <a href="/home/Violin">Violin</a>
-                <a href="/home/Flute">Flute</a>
-                <a href="/home/Trumpet">Trumpet</a>
-                <a href="/home/Drums">Drums</a>
-            </li>
+            <!--  template context processor      -->
+
+            {% for name,url in details %}
+            <a class='instumentlink' href={{url}}>
+                <span>{{name}}</span>
+            </a>
+            {% endfor %}
+
         </ul>
+        <!--<a class="contactus" href="/name/contactus">Contact Us</a>-->
     </div>
     <div>
-        <h2 style="color:white;background-color:green">Guitar</h2>
-        <p>The guitar is a fretted musical instrument that usually has six strings.
+        <h2 class="ptitle">Guitar</h2>
+        <p style="text-align: justify;">The guitar is a fretted musical instrument that usually has six strings.
             [1] It is typically played with both hands by strumming or plucking the strings with either a guitar pick or
             the
             fingers/fingernails of one hand, while simultaneously fretting (pressing the strings against the frets) with
