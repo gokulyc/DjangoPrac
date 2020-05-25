@@ -20,7 +20,7 @@ from FirstApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Music),
+    path('', Dy_Home),
     path('music/', Music),
     path('music/guitar', Guitar),
     path('music/Violin', Violin),
@@ -33,5 +33,7 @@ urlpatterns = [
     path('name/nipun', Nipun),
     path('name/arnab', Arnab),
     path('name/contactus', Contactus),
+    path('Dyhome/', Dy_Home),
+    path('Details/<str:name>/', Details, name='Details'),
 
 ]

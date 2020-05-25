@@ -49,3 +49,25 @@ def Arnab(request):
 
 def Contactus(request):
     return render(request, "names/contactus.html", {'details': details})
+
+
+def Dy_Home(request):
+    di = {'name': ['Prateek', 'Naresh', 'Nipun', 'Arnab', 'Nikita'],
+          'iurl': ['/adult-beard-boy-casual-1.jpg', '/men-s-wearing-black-suit-jacket-and-pants-2.jpg', '/photography-of-a-guy-wearing-green-shirt-3.jpg', '/man-sitting-on-bench-having-a-cup-of-coffee-4jpg.jpg']}
+    # di['selected_name'] = name
+    # for n, i_url in zip(di['name'], di['iurl']):
+    #     if n == name:
+    #         di['selected_image'] = i_url
+
+    return render(request, "index2.html", {'details': di})
+
+
+def Details(request, name):
+    di = {'name': ['Prateek', 'Naresh', 'Nipun', 'Arnab', 'Nikita'],
+          'iurl': ['/adult-beard-boy-casual-1.jpg', '/men-s-wearing-black-suit-jacket-and-pants-2.jpg', '/photography-of-a-guy-wearing-green-shirt-3.jpg', '/man-sitting-on-bench-having-a-cup-of-coffee-4jpg.jpg']}
+    di['selected_name'] = name
+    for n, i_url in zip(di['name'], di['iurl']):
+        if n == name:
+            di['selected_image'] = i_url
+
+    return render(request, "student.html", {'details': di})

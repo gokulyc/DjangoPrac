@@ -2,9 +2,9 @@
 
 <head>
     <style>
-        img.main {
-            height: 100%;
-            width: 100%;
+        img.iname {
+            height: 60%;
+            width: 35%;
         }
 
         .contactus {
@@ -19,16 +19,24 @@
 
         }
 
+
         a.contactus,
         a.contactus:visited,
         a.contactus:hover,
         a.contactus:active {
             color: inherit;
         }
+
+        #nametitle {
+            background-color: rgb(107, 157, 6);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <h1 style="color:green">
-    <a href="/home">
+    <a href="/Dyhome">
         <center style="color:white;background-color:blue">
             First App
         </center>
@@ -39,22 +47,19 @@
     <div>
         <ul>
             <!--  template context processor      -->
-            <!-- <li>{{name}}</li>
-        <li>{{name}}:{{age}}</li>
-        <li>list:{{li}}</li> -->
-            {% for name,url in details %}
-            <a href={{url}}>
+            <!-- {% for name in details.name %}
+            <a href={% url 'Details' name %}>
                 <li>{{name}}</li>
             </a>
-            {% endfor %}
-
+            {% endfor %} -->
             <!-- {% for i in li %}
         <li>{{i}}</li>
         {% endfor %} -->
 
         </ul>
-        <a class="contactus" href="/name/contactus">Contact Us</a>
+
     </div>
-    <br><br>
-    <img class='main' src="{%static 'people-at-concert-1105666.jpg'%}">
+    <a class="contactus" href="/name/contactus">Contact Us</a><br>
+    <h2 id="nametitle">{{details.selected_name}}</h2>
+    <img class='iname' alt="image not found" src="{% static details.selected_image %}">
 </body>
