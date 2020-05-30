@@ -6,10 +6,24 @@ PWD should be in manage.py:
 Database:
     1)create models(tables)
     2)convert models(tables) in  data cmds
-           apply data tables: python manage.py migrate
+    3)     apply data tables: python manage.py migrate
 
 Add User:
     1)python manage.py createsuperuser
 
 Start app: 
     1)python manage.py startapp AppName
+
+Day 16
+InteractiveConsole:
+    1)python manage.py shell
+    >>> from django.contrib.auth.models import User
+    >>> data=User.objects.all()
+    >>> data
+    <QuerySet [<User: gokulyc@gmail.com>, <User: user1>]>
+
+Day 17:
+ create data tables:
+    1)Define Class(table) in models.py.
+    2)generte migrations - python manage.py makemigrations Music
+    3)apply migrations data tables: python manage.py migrate

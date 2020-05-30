@@ -13,6 +13,6 @@
                 "runserver"
             ],
             "django": true
-        }
+        },
     ]
 }

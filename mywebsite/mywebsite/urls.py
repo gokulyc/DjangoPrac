@@ -32,8 +32,19 @@ urlpatterns = [
     path('name/naresh', Naresh),
     path('name/nipun', Nipun),
     path('name/arnab', Arnab),
+    # FirstApp
     path('name/contactus', Contactus),
+    # Music
+    path('music/contactus', M_Contactus),
+
+    # Dynamic urls
     path('Dyhome/', Dy_Home),
     path('Details/<str:name>/', Details, name='Details'),
+    # Songs and Albums
+    # path('', MyAlbum, name='album'),
+    # path("albumDetails/<int:a_id>/", AlbumDetails, name="Songs"),
+
+
+
 
 ]

@@ -61,5 +61,11 @@
     </div>
     <a class="contactus" href="/name/contactus">Contact Us</a><br>
     <h2 id="nametitle">{{details.selected_name}}</h2>
-    <img class='iname' alt="image not found" src="{% static details.selected_image %}">
+    <!-- <img class='iname' alt="image not found..." src="{% static details.selected_image %}"></img> -->
+    {% if details.selected_image != None  %}
+    <img class='iname' alt="image not found..." src="{% static details.selected_image %}"></img>
+    {% else %}
+    <p style="color: red;">Image Not Found!!!</p>
+    {% endif %}
+
 </body>

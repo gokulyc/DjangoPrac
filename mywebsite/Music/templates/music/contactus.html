@@ -1,0 +1,105 @@
+{% load static %}
+
+<head>
+    <style>
+    .btn {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px;
+            border-radius: 20px
+        }
+
+        .btn:hover {
+            background-color: green;
+        }
+
+        .mtitle {
+            color: white;
+            background-color: rgb(103, 15, 255);
+            text-align: center;
+
+        }
+
+        img.main {
+            height: 100%;
+            width: 100%;
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: cadetblue;
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+
+        }
+
+        a.instumentlink {
+            border: solid 1px black;
+            text-decoration: none;
+            color: rgb(53, 84, 7);
+            border-radius: 20px;
+            padding: 10 10 10 10;
+
+        }
+
+        .ptitle {
+            color: white;
+            background-color: rgb(3, 132, 137);
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        .contactus {
+            position: absolute;
+            right: 0px;
+            background-color: rgb(152, 212, 255);
+            color: cornsilk;
+            border-radius: 20px;
+            font-size: larger;
+            padding: 5 5 5 5;
+            text-decoration: none;
+
+        }
+
+        a.contactus,
+        a.contactus:visited,
+        a.contactus:hover,
+        a.contactus:active {
+            color: inherit;
+        }
+
+        #nametitle {
+            background-color: rgb(107, 157, 6);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 style="color:green">
+        <a href="/music">
+            <center class='mtitle'>
+                Music App
+            </center>
+        </a>
+    </h1>
+    
+    <a class="contactus" href="/music/contactus">Contact Us</a><br>
+    <h2 id="nametitle">Contact Us</h2>
+    <h3>Users:</h3><br>
+    <ul>
+    {% for i in users%}
+        <li><h4> {{i}} </h4></li>
+    {% endfor %}
+    </ul>
+</body>

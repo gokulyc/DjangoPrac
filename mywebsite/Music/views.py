@@ -2,6 +2,7 @@
 # from django.http import HttpResponse
 # from django.template.loader import render_to_string
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -38,3 +39,14 @@ def Trumpet(request):
 
 def Drums(request):
     return render(request, "a/drums.html", {'details': details})
+
+
+def M_Contactus(request):
+    email_q = []
+    user_li = User.objects.all()
+    for i in user_li:
+        User.get_email_field_name()
+    # di_name = {'users': }
+    return render(request, "music/contactus.html", {'users': user_li})
+# def AlbumDetails(requests, a_id):
+#     data = Album.o
