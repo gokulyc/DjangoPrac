@@ -20,7 +20,7 @@ from FirstApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Dy_Home),
+    path('', Album),
     path('music/', Music),
     path('music/guitar', Guitar),
     path('music/Violin', Violin),
@@ -40,8 +40,9 @@ urlpatterns = [
     # Dynamic urls
     path('Dyhome/', Dy_Home),
     path('Details/<str:name>/', Details, name='Details'),
+
     # Songs and Albums
-    # path('', MyAlbum, name='album'),
+    path('MyAlbum/', Album, name='album'),
     # path("albumDetails/<int:a_id>/", AlbumDetails, name="Songs"),
 
 

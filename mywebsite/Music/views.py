@@ -3,6 +3,7 @@
 # from django.template.loader import render_to_string
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from Music.models import Album as Album_db
 
 # Create your views here.
 
@@ -42,11 +43,14 @@ def Drums(request):
 
 
 def M_Contactus(request):
-    email_q = []
     user_li = User.objects.all()
-    for i in user_li:
-        User.get_email_field_name()
     # di_name = {'users': }
     return render(request, "music/contactus.html", {'users': user_li})
 # def AlbumDetails(requests, a_id):
 #     data = Album.o
+
+
+def Album(request):
+    data = Album_db.objects.all()
+
+    return render(request, "music/album.html", {'albums': data})
