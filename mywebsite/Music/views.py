@@ -4,6 +4,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from Music.models import Album as Album_db
+from Music.models import Song as song_db
 
 # Create your views here.
 
@@ -54,3 +55,14 @@ def Album(request):
     data = Album_db.objects.all()
 
     return render(request, "music/album.html", {'albums': data})
+
+
+def AlbumDetails(request, a_id):
+    data = Album_db.objects.get(id=a_id)
+    return render(request, "music/albumdetails.html", {"albums": data})
+
+
+def SongDetails(request, al_id):
+
+    data = song_db.objects.filter(album_id=al_id)
+    return render(request, "music/songdetails.html", {"songs": data})

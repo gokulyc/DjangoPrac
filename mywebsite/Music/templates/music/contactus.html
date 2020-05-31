@@ -2,7 +2,7 @@
 
 <head>
     <style>
-    .btn {
+        .btn {
             background-color: darkcyan;
             color: white;
             padding: 10px;
@@ -81,6 +81,14 @@
             border-radius: 20px;
             text-align: center;
         }
+
+        #location {
+            background-color: rgb(107, 157, 6);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            padding-left: 20px;
+
+        }
     </style>
 </head>
 
@@ -93,13 +101,20 @@
             </center>
         </a>
     </h1>
-    
+
     <a class="contactus" href="/music/contactus">Contact Us</a><br>
     <h2 id="nametitle">Contact Us</h2>
     <h3>Users:</h3><br>
     <ul>
-    {% for i in users%}
-        <li><h4> {{i}} </h4></li>
-    {% endfor %}
+        {% for i in users%}
+        <li>
+            <h4> {{i}} </h4>
+        </li>
+        {% endfor %}
     </ul>
+    <h2 id="location">Location:</h2>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243646.88005494743!2d78.26795760771363!3d17.41262741851094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1590916363502!5m2!1sen!2sin"
+        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
 </body>

@@ -18,21 +18,17 @@
 
     <div>
         <center>
-            <h3 class='display-4 bg-info text-white'>List of Albums<div class="float-md-right"><a
-                        href="/music/contactus"><button class="btn btn-secondary m-3">ContactUs</button></a></div>
-            </h3>
+            <h2 class='bg-info text-white p-3'>Album Detials<div class="float-md-right"><a
+                        href="/music/contactus"><button class="btn btn-secondary">ContactUs</button></a></div>
+            </h2>
         </center>
-        <ul class="list-group">
-            {% for album in albums %}
-            <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path}}" alt="error" height="450"
-                width="450">
-            <a href="{% url 'albumdetails' album.id %}">
-                <li class="list-group-item text-md-center bg-primary text-white list-group-item-action">{{album.name}} -
-                    {{album.artist}} </li>
-            </a>
+        <!-- <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path}}" alt="error" height="450"
+            width="450"> -->
+        <a href="{%url 'songdetails' albums.id%}">Songs List</a><br>
+        <span>Name :</span><span>{{albums.id}}</span><br>
+        <span>Artist :</span><span>{{albums.artist}}</span><br>
+        <img id="albumimg" class="m-2 p-3" src="{{albums.img_path}}" alt="error" height="450" width="450">
 
-            {%endfor%}
-        </ul>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

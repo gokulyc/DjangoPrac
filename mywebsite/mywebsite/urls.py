@@ -43,7 +43,8 @@ urlpatterns = [
 
     # Songs and Albums
     path('MyAlbum/', Album, name='album'),
-    # path("albumDetails/<int:a_id>/", AlbumDetails, name="Songs"),
+    path("albumDetails/<int:a_id>/", AlbumDetails, name="albumdetails"),
+    path("songDetails/<int:al_id>/", SongDetails, name="songdetails"),
 
 
 
