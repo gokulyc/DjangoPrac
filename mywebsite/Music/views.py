@@ -1,5 +1,5 @@
 # from django.shortcuts import render
-# from django.http import HttpResponse
+from django.http import HttpResponse
 # from django.template.loader import render_to_string
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -58,8 +58,11 @@ def Album(request):
 
 
 def AlbumDetails(request, a_id):
-    data = Album_db.objects.get(id=a_id)
-    return render(request, "music/albumdetails.html", {"albums": data})
+    try:
+        data = Album_db.objects.get(id=a_id)
+        return render(request, "music/albumdetails.html", {"albums": data})
+    except:
+        return HttpResponse("No Album Found !!!")
 
 
 def SongDetails(request, al_id):
