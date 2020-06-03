@@ -27,3 +27,7 @@ Day 17:
     1)Define Class(table) in models.py.
     2)generte migrations - python manage.py makemigrations Music
     3)apply migrations data tables: python manage.py migrate
+
+Day 20:
+image library
+pip install Pillow

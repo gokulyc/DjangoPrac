@@ -60,6 +60,11 @@ def Album(request):
 def AlbumDetails(request, a_id):
     try:
         data = Album_db.objects.get(id=a_id)
+        # print(type(data.img_path))
+        # <class 'django.db.models.fields.files.ImageFieldFile'>
+        # print(data.img_path.url)
+        # /media/HalfGF.jpg
+
         return render(request, "music/albumdetails.html", {"albums": data})
     except:
         return HttpResponse("No Album Found !!!")

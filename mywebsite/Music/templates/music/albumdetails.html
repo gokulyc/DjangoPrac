@@ -27,7 +27,7 @@
         <a href="{%url 'songdetails' albums.id%}">Songs List</a><br>
         <span>Name :</span><span>{{albums.id}}</span><br>
         <span>Artist :</span><span>{{albums.artist}}</span><br>
-        <img id="albumimg" class="m-2 p-3" src="{{albums.img_path}}" alt="error" height="450" width="450">
+        <img id="albumimg" class="m-2 p-3" src="{{albums.img_path.url}}" alt="error" height="450" width="450">
 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

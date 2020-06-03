@@ -6,7 +6,8 @@ from django.db import models
 class Album(models.Model):
     name = models.CharField(max_length=50)
     artist = models.CharField(max_length=50)
-    img_path = models.CharField(max_length=1200, null=True)
+    # img_path = models.CharField(max_length=1200, null=True)
+    img_path = models.ImageField(null=True)
 
     def __str__(self):
         return self.name

@@ -26,7 +26,7 @@
         </center>
         <ul class="list-group">
             {% for album in albums %}
-            <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path}}" alt="error" height="450"
+            <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path.url}}" alt="error" height="450"
                 width="450">
             <a href="{% url 'albumdetails' album.id %}">
                 <li class="list-group-item text-md-center bg-primary text-white list-group-item-action">{{album.name}} -
