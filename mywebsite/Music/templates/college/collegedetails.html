@@ -14,27 +14,45 @@
     </style>
 </head>
 
-<body class=".container-fluid">
+<body class=".container">
 
     <div>
         <center>
-            <h3 class='display-4 bg-info text-white'>List of Albums<div class="float-md-right"><a
-                        href="/music/contactus"><button class="btn btn-secondary m-3">ContactUs</button></a></div>
-            </h3>
-            <div class="float-md-left"><a href="/college/"><button class="btn btn-secondary m-3">List of
-                        College</button></a></div>
+            <h2 class='bg-info text-white p-3'>College Detials<div class="float-md-right"><a
+                        href="/music/contactus"><button class="btn btn-secondary">ContactUs</button></a></div>
+            </h2>
         </center>
-        <ul class="list-group">
-            {% for album in albums %}
-            <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path}}" alt="error" height="450"
-                width="450">
-            <a href="{% url 'albumdetails' album.id %}">
-                <li class="list-group-item text-md-center bg-primary text-white list-group-item-action">{{album.name}} -
-                    {{album.artist}} </li>
-            </a>
 
-            {%endfor%}
-        </ul>
+        <span>Name :</span><span>{{college.name}}</span><br>
+        <span>Address :</span><span>{{college.address}}</span><br>
+        <br>
+        {% if students|length != 0 %}
+        <table class="table table-striped table-sm">
+            <tr class="thead-dark">
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Song</th>
+                <th>College</th>
+            </tr>
+
+            {%for student in students %}
+            <tr>
+
+
+                <td><a href="{% url 'studentdetails' student.id %}">{{student.name}} </a></td>
+
+                <td>{{student.branch}}</td>
+                <td>{{student.song}}</td>
+                <td>{{student.college}}</td>
+
+
+            </tr>
+            {% endfor %}
+            {%else%}
+            <p class='text text-danger'>No Students/Album !!!</p>
+            {% endif%}
+        </table>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

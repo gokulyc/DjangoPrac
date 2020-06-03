@@ -46,6 +46,11 @@ urlpatterns = [
     path("albumDetails/<int:a_id>/", AlbumDetails, name="albumdetails"),
     path("songDetails/<int:al_id>/", SongDetails, name="songdetails"),
 
+    # College and Students
+    path("college/", CollegeAll),
+    path("college/details/<int:col_id>", CollegeDetails, name="collegedetails"),
+    path("college/studentdetails/<int:student_id>",
+         StudentDetails, name="studentdetails"),
 
 
 

@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from Music.models import Album as Album_db
 from Music.models import Song as song_db
-
+from Music import models
 # Create your views here.
 
 # Class based view
@@ -66,6 +66,35 @@ def AlbumDetails(request, a_id):
 
 
 def SongDetails(request, al_id):
+    try:
+        album_obj = Album_db.objects.get(id=al_id)
+        data = song_db.objects.filter(album_id=album_obj)
+        return render(request, "music/songdetails.html", {"songs": data})
+    except:
+        return HttpResponse("No Songs Found !!!")
 
-    data = song_db.objects.filter(album_id=al_id)
-    return render(request, "music/songdetails.html", {"songs": data})
+
+def CollegeAll(request):
+    c_list = models.College.objects.all()
+    return render(request, "college/collegeall.html", {"college": c_list})
+
+
+def CollegeDetails(request, col_id):
+    # c_list = models.College.objects.filter(id=col_id)
+    col_obj = models.College.objects.get(id=col_id)
+    stu_list = models.Students.objects.filter(college=col_obj)
+    return render(request, "college/collegedetails.html", {"college": col_obj, "students": stu_list})
+
+
+def StudentDetails(request, student_id):
+    stu_obj = models.Students.objects.get(id=student_id)
+    # print(type(stu_obj))
+
+    col_obj = stu_obj.college
+
+    stu_list: list = list(models.Students.objects.filter(college=col_obj))
+    # print(type(stu_list[0]))
+    stu_list.remove(stu_obj)
+    # print(stu_list)
+    # stu_list.remove()
+    return render(request, "college/studentdetails.html", {"cur_student": stu_obj, "students": stu_list})
