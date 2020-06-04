@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body class=".container-fluid">
+<body class="container-fluid">
 
     <div>
         <center>
@@ -23,8 +23,19 @@
             </h3>
             <div class="float-md-left"><a href="/college/"><button class="btn btn-secondary m-3">List of
                         College</button></a></div>
+            <div class="float-md-left"><a href="/music/add_album"><button class="btn btn-secondary m-3">Add
+                        Album</button></a>
+
+            </div>
+            <div class="float-md-left"><a href="/music/add_song"><button class="btn btn-secondary m-3">Add
+                        Song</button></a>
+
+            </div>
         </center>
-        <ul class="list-group">
+    </div>
+    <br>
+    <div>
+        <ul class="list-group ">
             {% for album in albums %}
             <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path.url}}" alt="error" height="450"
                 width="450">

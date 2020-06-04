@@ -1,11 +1,12 @@
 # from django.shortcuts import render
 from django.http import HttpResponse
 # from django.template.loader import render_to_string
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from Music.models import Album as Album_db
 from Music.models import Song as song_db
 from Music import models
+
 # Create your views here.
 
 # Class based view
@@ -52,7 +53,8 @@ def M_Contactus(request):
 
 
 def Album(request):
-    data = Album_db.objects.all()
+    data = Album_db.objects.all().order_by("name")
+    # data = Album_db.objects.all().order_by("-id")
 
     return render(request, "music/album.html", {'albums': data})
 
@@ -101,5 +103,51 @@ def StudentDetails(request, student_id):
     # print(type(stu_list[0]))
     stu_list.remove(stu_obj)
     # print(stu_list)
-    # stu_list.remove()
+
     return render(request, "college/studentdetails.html", {"cur_student": stu_obj, "students": stu_list})
+
+
+def Add_Album(request):
+    # print(request.method)
+    if request.method == 'POST':
+        print(request.POST)
+        di = request.POST
+        a_name = di['album_name']
+        artist_name = di['artist_name']
+        banner = request.FILES['artist_banner']
+        obj = models.Album()
+        obj.name = a_name
+        obj.artist = artist_name
+        obj.img_path = banner
+        obj.save()
+        return redirect('album')
+
+    return render(request, "music/add_album.html")
+
+
+def Add_Song(request):
+    albums_d = models.Album.objects.all()
+# 'song_name': ['fhbs'], 'album_name': ['1'], 'artist_name': ['sdvsb'], 'Year': ['2068'], 'language': ['Hindi']}
+    print(request.method)
+    if request.method == 'POST':
+        print(request.POST)
+        di = request.POST
+        song_name = di['song_name']
+        artist_name = di['artist_name']
+        year = di['Year']
+        album_id = di['album_name']
+        lan = di['language']
+
+        obj = models.Song()
+        obj.name = song_name
+        obj.artist = artist_name
+        obj.released = year
+        obj.language = lan
+
+        obj.album_id = models.Album.objects.get(id=album_id)
+        obj.album = models.Album.objects.get(id=album_id)
+        # print(obj)
+        obj.save()
+        # return redirect('album')
+
+    return render(request, "music/add_song.html", {'albums': albums_d})

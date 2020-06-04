@@ -47,12 +47,17 @@ urlpatterns = [
     path('MyAlbum/', Album, name='album'),
     path("albumDetails/<int:a_id>/", AlbumDetails, name="albumdetails"),
     path("songDetails/<int:al_id>/", SongDetails, name="songdetails"),
+    path("music/add_album",
+         Add_Album, name="addAlbum"),
+    path("music/add_song",
+         Add_Song, name="addSong"),
 
     # College and Students
     path("college/", CollegeAll),
     path("college/details/<int:col_id>", CollegeDetails, name="collegedetails"),
     path("college/studentdetails/<int:student_id>",
          StudentDetails, name="studentdetails"),
+
 
 
 
