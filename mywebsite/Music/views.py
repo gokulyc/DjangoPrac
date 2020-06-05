@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from Music.models import Album as Album_db
 from Music.models import Song as song_db
 from Music import models
+from django.contrib.auth import login,authenticate,logout
 
 # Create your views here.
 
@@ -53,10 +54,15 @@ def M_Contactus(request):
 
 
 def Album(request):
+    login_status=request.user.is_authenticated
+    if not request.user.is_anonymous:
+        login_user=request.user.username
+    else:
+        login_user = ''
     data = Album_db.objects.all().order_by("name")
     # data = Album_db.objects.all().order_by("-id")
 
-    return render(request, "music/album.html", {'albums': data})
+    return render(request, "music/album.html", {'albums': data,'login_status':login_status,'LUSER':login_user})
 
 
 def AlbumDetails(request, a_id):
@@ -106,8 +112,30 @@ def StudentDetails(request, student_id):
 
     return render(request, "college/studentdetails.html", {"cur_student": stu_obj, "students": stu_list})
 
+def login_page(request,r_url):
+    if request.method=='POST':
+        data=request.POST
+        uname=data['uname']
+        pwd=data['password']
+        usr=authenticate(username= uname,password=pwd)
+        if usr!=None:
+            login(request,usr)
+            return redirect(r_url)
+        else:
+            print('error')
+
+
+    return render(request,"auth/login.html")
+
+def logout_site(request):
+    logout(request)
+    return redirect('album')
+
 
 def Add_Album(request):
+    if not request.user.is_authenticated:
+        print(type(request.user))
+        return redirect('loginpage','addAlbum')
     # print(request.method)
     if request.method == 'POST':
         print(request.POST)
@@ -126,7 +154,10 @@ def Add_Album(request):
 
 
 def Add_Song(request):
-    albums_d = models.Album.objects.all()
+    if not request.user.is_authenticated:
+        print(type(request.user))
+        return redirect('loginpage', 'addSong')
+
 # 'song_name': ['fhbs'], 'album_name': ['1'], 'artist_name': ['sdvsb'], 'Year': ['2068'], 'language': ['Hindi']}
     print(request.method)
     if request.method == 'POST':
@@ -137,17 +168,22 @@ def Add_Song(request):
         year = di['Year']
         album_id = di['album_name']
         lan = di['language']
+        song_file=request.FILES['song_file']
 
         obj = models.Song()
         obj.name = song_name
         obj.artist = artist_name
         obj.released = year
         obj.language = lan
+        obj.file=song_file
 
         obj.album_id = models.Album.objects.get(id=album_id)
         obj.album = models.Album.objects.get(id=album_id)
         # print(obj)
         obj.save()
-        # return redirect('album')
+        return redirect('songdetails',album_id)
+
+
+    albums_d = models.Album.objects.all().order_by("name")
 
     return render(request, "music/add_song.html", {'albums': albums_d})

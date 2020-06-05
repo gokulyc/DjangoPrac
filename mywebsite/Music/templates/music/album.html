@@ -18,9 +18,26 @@
 
     <div>
         <center>
-            <h3 class='display-4 bg-info text-white'>List of Albums<div class="float-md-right"><a
+            <h2 class='display-3 bg-info text-white'>List of Albums
+
+                <div class="float-md-right"><a
                         href="/music/contactus"><button class="btn btn-secondary m-3">ContactUs</button></a></div>
-            </h3>
+
+
+                {% if login_status %}
+                <div class="float-md-right"><a
+                        href="{% url 'logout' %}"><button class="btn btn-secondary m-3">Logout</button></a></div>
+
+                <div class="float-md-right"><button class="btn btn-secondary m-3 inactive">Hi {{ request.user }}</button></div>
+                {%else %}
+                <div class="float-md-right"><a
+                        href="{% url 'loginpage' 'album'%}"><button class="btn btn-secondary m-3">Login</button></a></div>
+                {%endif%}
+
+
+
+
+            </h2>
             <div class="float-md-left"><a href="/college/"><button class="btn btn-secondary m-3">List of
                         College</button></a></div>
             <div class="float-md-left"><a href="/music/add_album"><button class="btn btn-secondary m-3">Add

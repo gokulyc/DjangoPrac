@@ -15,6 +15,7 @@
     <table class="table table-striped table-sm">
         <tr class="thead-dark">
             <th>Name</th>
+            <th>Song</th>
             <th>Album</th>
             <th>Artist</th>
             <th>Released</th>
@@ -25,10 +26,19 @@
         <tr>
 
             <td>{{song.name}}</td>
+
+            <td>
+                {% if song.file %}
+                <audio controls><source src="{{song.file.url}}" type="audio/mp3">Error</audio>
+                {%else%}
+                No Song uploaded
+                {%endif%}
+            </td>
             <td>{{song.album}}</td>
             <td>{{song.artist}}</td>
             <td>{{song.released}}</td>
             <td>{{song.language}}</td>
+
 
         </tr>
         {% endfor %}

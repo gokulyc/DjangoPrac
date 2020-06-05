@@ -58,6 +58,10 @@ urlpatterns = [
     path("college/studentdetails/<int:student_id>",
          StudentDetails, name="studentdetails"),
 
+    #Login
+    path("login/<str:r_url>",login_page,name='loginpage'),
+    path("logout/",logout_site,name='logout'),
+
 
 
 

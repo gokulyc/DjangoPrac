@@ -20,7 +20,7 @@ class Song(models.Model):
     released = models.CharField(max_length=5)
     language = models.CharField(max_length=20)
     # album_id = models.CharField(max_length=10, null=True)
-
+    file=models.FileField(null=True)
     album_id = models.ForeignKey(Album, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
