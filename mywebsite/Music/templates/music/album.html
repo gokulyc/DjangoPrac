@@ -54,12 +54,17 @@
     <div>
         <ul class="list-group ">
             {% for album in albums %}
+            {% if album.img_path %}
             <img id="albumimg" class="align-self-center m-2 p-3" src="{{album.img_path.url}}" alt="error" height="450"
                 width="450">
+            {% endif %}
             <a href="{% url 'albumdetails' album.id %}">
-                <li class="list-group-item text-md-center bg-primary text-white list-group-item-action">{{album.name}} -
-                    {{album.artist}} </li>
+                <li class="list-group-item text-md-center bg-primary  list-group-item-action"><span class="text-white">{{album.name}} -
+                    {{album.artist}}       </span><span><a href="{%url 'delAlbum' album.id %}"><img height="20px" src="data:image/png;base64,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"></a></span> </li>
             </a>
+
+
+
 
             {%endfor%}
         </ul>

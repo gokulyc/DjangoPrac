@@ -49,8 +49,13 @@ urlpatterns = [
     path("songDetails/<int:al_id>/", SongDetails, name="songdetails"),
     path("music/add_album",
          Add_Album, name="addAlbum"),
+    # form model
+    path("music/add_album1",
+         Add_Album_New, name="addAlbum_new"),
     path("music/add_song",
          Add_Song, name="addSong"),
+path("music/del_album/<int:a_id>/",
+         delete_album, name="delAlbum"),
 
     # College and Students
     path("college/", CollegeAll),

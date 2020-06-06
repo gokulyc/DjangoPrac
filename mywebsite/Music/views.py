@@ -10,6 +10,7 @@ from Music.models import Album as Album_db
 from Music.models import Song as song_db
 from Music import models
 from django.contrib.auth import login,authenticate,logout
+from . import forms
 
 # Create your views here.
 
@@ -180,7 +181,7 @@ def register_user(request):
 
 def Add_Album(request):
     if not request.user.is_authenticated:
-        print(type(request.user))
+        # print(type(request.user))
         return redirect('loginpage','addAlbum')
     # print(request.method)
     if request.method == 'POST':
@@ -198,6 +199,28 @@ def Add_Album(request):
 
     return render(request, "music/add_album.html")
 
+def Add_Album_New(request):
+    if not request.user.is_authenticated:
+        # print(type(request.user))
+        return redirect('loginpage','addAlbum')
+    form=forms.Add_Album_Form()
+    if request.method == 'POST':
+        form=forms.Add_Album_Form(request.POST,request.FILES)
+        # print(form)
+        if form.is_valid():
+            form.save()
+            print('saved')
+            return redirect('album')
+
+    return render(request,"music/add_album1.html",{'form':form})
+
+def delete_album(request,a_id):
+    if not request.user.is_authenticated:
+        # print(type(request.user))
+        return redirect('loginpage','album')
+    obj=models.Album.objects.get(id=a_id)
+    obj.delete()
+    return redirect('album')
 
 def Add_Song(request):
     if not request.user.is_authenticated:
