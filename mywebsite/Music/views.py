@@ -1,8 +1,11 @@
 # from django.shortcuts import render
+from django.db import IntegrityError
 from django.http import HttpResponse
 # from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.urls import NoReverseMatch
+
 from Music.models import Album as Album_db
 from Music.models import Song as song_db
 from Music import models
@@ -113,6 +116,8 @@ def StudentDetails(request, student_id):
     return render(request, "college/studentdetails.html", {"cur_student": stu_obj, "students": stu_list})
 
 def login_page(request,r_url):
+    error=False
+    last_un=''
     if request.method=='POST':
         data=request.POST
         uname=data['uname']
@@ -120,17 +125,58 @@ def login_page(request,r_url):
         usr=authenticate(username= uname,password=pwd)
         if usr!=None:
             login(request,usr)
-            return redirect(r_url)
+            try:
+                return redirect(r_url)
+            except NoReverseMatch :
+                return redirect('album')
         else:
-            print('error')
+            last_un=uname
+            error=True
 
-
-    return render(request,"auth/login.html")
+    return render(request,"auth/login.html",{'error':error,'last_un':last_un})
 
 def logout_site(request):
     logout(request)
     return redirect('album')
 
+def register_user(request):
+    existing_users=[str(user) for user in User.objects.all()]
+    print(existing_users)
+    error = ''
+    last_un = ''
+    last_em=''
+    l_full_name=''
+    uerror=''
+    if request.method=='POST':
+        data=request.POST
+        f_name=data['full_name']
+        uname=data['uname']
+        pwd=data['password']
+        confirm_pwd=data['confirm_password']
+        email=data['email']
+        last_un=uname
+        last_em=email
+        l_full_name=f_name
+
+
+        if len(pwd)>6:
+            if pwd != confirm_pwd:
+                error = 'Entered Passwords are not matching'
+        else:
+            error='Password length should be > 6'
+        try:
+            if error=='':
+                usr=User.objects.create_user(uname,email,pwd)
+                usr.first_name=f_name
+                usr.save()
+                return redirect('loginpage','loginpage')
+        except IntegrityError:
+            uerror = 'User Already Exists'
+
+
+
+
+    return render(request,"auth/register.html",{'error':error,'existing_users':existing_users,'uerror':uerror,'l_full_name':l_full_name,'last_un':last_un,'last_em':last_em})
 
 def Add_Album(request):
     if not request.user.is_authenticated:

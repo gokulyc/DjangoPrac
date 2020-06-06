@@ -11,26 +11,39 @@
 
 <body>
     <center>
-        <H1>Login Page</H1>
+        <H1>Registration Page</H1>
     </center>
     <H3>Enter Details</H3>
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {%if error%}
-        <p class="text-danger">Invalid Username or Password</p>
+        <p class="text-danger">{{error}}</p>
         {%endif%}
         <div class="form-group">
+            <label>Full name</label>
+            <input type="text" class="form-control p-2" placeholder="User name" value="{{l_full_name}}" name="full_name" required><br>
+        </div>
+        <div class="form-group">
             <label>User name</label>
-            <input type="text" class="form-control" placeholder="User name" value="{{last_un}}" name="uname" required><br>
+            <input type="text" class="form-control" placeholder="User name" value="{{last_un}}" name="uname" required>
+            {% if uerror %}
+            <p class="text-danger">{{uerror}}</p><br>
+            {%endif%}
+        </div>
+         <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" placeholder="email" value="{{last_em}}" name="email" required><br>
         </div>
         <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" placeholder="Password" name="password" autofocus required><br>
         </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" placeholder="Password" name="confirm_password" autofocus required><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
-    <a href="{% url 'register'%}">New User?, Register</a>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

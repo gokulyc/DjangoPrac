@@ -60,6 +60,7 @@ urlpatterns = [
 
     #Login
     path("login/<str:r_url>",login_page,name='loginpage'),
+    path("register/",register_user,name='register'),
     path("logout/",logout_site,name='logout'),
 
 
