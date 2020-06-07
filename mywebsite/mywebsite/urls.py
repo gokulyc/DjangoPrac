@@ -54,8 +54,11 @@ urlpatterns = [
          Add_Album_New, name="addAlbum_new"),
     path("music/add_song",
          Add_Song, name="addSong"),
-path("music/del_album/<int:a_id>/",
+    path("music/del_album/<int:a_id>/",
          delete_album, name="delAlbum"),
+    path("music/edit_album/<int:a_id>/",
+         Edit_Album, name="editAlbum"),
+
 
     # College and Students
     path("college/", CollegeAll),

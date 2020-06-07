@@ -179,6 +179,7 @@ def register_user(request):
 
     return render(request,"auth/register.html",{'error':error,'existing_users':existing_users,'uerror':uerror,'l_full_name':l_full_name,'last_un':last_un,'last_em':last_em})
 
+# Old one
 def Add_Album(request):
     if not request.user.is_authenticated:
         # print(type(request.user))
@@ -213,6 +214,19 @@ def Add_Album_New(request):
             return redirect('album')
 
     return render(request,"music/add_album1.html",{'form':form})
+
+def Edit_Album(request,a_id):
+    if not request.user.is_authenticated:
+        # print(type(request.user))
+        return redirect('loginpage','album')
+    al_obj = models.Album.objects.get(id=a_id)
+    form = forms.Add_Album_Form(request.POST or None,request.FILES or None,instance=al_obj)
+    if form.is_valid():
+        form.save()
+        return redirect('album')
+
+    return render(request,"music/add_album1.html",{'form':form})
+
 
 def delete_album(request,a_id):
     if not request.user.is_authenticated:

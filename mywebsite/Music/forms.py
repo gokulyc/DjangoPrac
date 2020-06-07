@@ -8,7 +8,7 @@ class Add_Album_Form(forms.ModelForm):
         widgets={
             "name":forms.TextInput(attrs={'class':'form-control','placeholder':'Album Name','required':''}),
             "artist":forms.TextInput(attrs={'class':'form-control','placeholder':'Artist Name','required':''}),
-            "img_path":forms.FileInput(attrs={'class':'form-control-file','required':''}),
+            "img_path":forms.FileInput(attrs={'class':'form-control-file'}),
 
 
         }
