@@ -1,10 +1,11 @@
 # from django.shortcuts import render
-from django.db import IntegrityError
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # from django.template.loader import render_to_string
-from django.shortcuts import render, redirect
+
 from django.contrib.auth.models import User
 from django.urls import NoReverseMatch
+from django.db import IntegrityError
 
 from Music.models import Album as Album_db
 from Music.models import Song as song_db

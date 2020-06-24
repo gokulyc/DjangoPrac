@@ -1,3 +1,5 @@
+conda activate django
+
 create Project : django-admin startproject name
 
 PWD should be in manage.py:
